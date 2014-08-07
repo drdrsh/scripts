@@ -1,5 +1,5 @@
 /* 	jQuery Khareta Plugin 1.0.0 By Mostafa Abdelraouf (@droushi)
-*	https://github.com/drdrsh/scripts/tree/master/Khareta
+*	https://github.com/drdrsh/scripts/tree/master/khareta
 *
 *  	Copyright (c) 2014 Mostafa Abdelraouf
 *	This plugin is released under MIT license
