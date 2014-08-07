@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Khareeta - A Google Maps jQuery Plugin</title>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCjXZ3cPqmcP7PqGpotxqRETyTVyVruFBw&amp;language="></script>	
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/jquery.khareta.min.js"></script>
+	<link href="./css/jquery.khareta.css" media="all" rel="stylesheet" type="text/css" />
+	<style>
+	body{
+		background-color:#F7F7F7;	
+	}
+	
+	#container{
+		background-color: white;
+		box-shadow: 1px 1px 10px #888;
+		margin: auto;
+		width: 90%;
+		min-width: 820px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		padding:15px;
+	}
+	.khareta-inline-map{
+		width:800px;
+		height:250px;
+	}
+	#textarea_2{
+		width:400px;
+		height:200px;
+	}
+	#textarea_3{
+		width:400px;
+		height:200px;
+	}
+	</style>
+</head>
+<body>
+	<script>
+	function transform(id, btn){
+		$('#' + id).khareta();
+		$(btn).hide();
+	}
+	
+	$(document).ready(function(){
+		$('#textarea_1').khareta();
+		$('#textarea_3').khareta();
+		$('#textarea_3').show();
+	});
+	</script>
+	<div id="container">
+		<h1>Khareta : A Google Maps jQuery Plugin</h1>
+		<p>
+		<a href="https://github.com/drdrsh/scripts/tree/master/Khareta">Khareta (خريطة)</a> means "Map" in Arabic, It is a jQuery plugin that transforms your average textarea into a Google Maps Input component where the user can place points, polylines or polygons on the map and have the result serialized to the textarea immediately.<br>
+		For documentation please visit <a href="https://github.com/drdrsh/scripts/tree/master/Khareta">Khareta on GitHub</a>
+		</p>
+		
+		<h3>Using the examples</h3>
+		<p>
+		You can pick a mode from the lower left corner of the map then click the map to add points, to remove points just click the markers again, to move existing points around drag the point's marker.
+		<br>
+		<br>
+		To allow yourself more freedom click the <strong>"Full Screen"</strong> button on the upper right corner of the screen to go in Fullscreen mode that will allow you more space to place your points. to go back to the normal mode click the <strong>"Full Screen"</strong> button again.
+		</p>
+		<hr />
+
+		<h3>Simple Example</h3>
+		<p>This is the simplest possible example for Khareta acheived by this code:</p>
+		<pre>$('#textarea_1').khareta(); </pre>
+		
+		<p>o see the internal data of this map, open your console and write</p>
+		<pre>$('#textarea_1').khareta('getData'); </pre>
+	
+		<textarea id="textarea_1"></textarea>
+
+		<hr />
+		
+		<h3>Dynamic Example</h3>
+		<p>Click "Transform To Map" button to attach khareta to this element</p>
+		<textarea id="textarea_2">{"mode":"polygon","points":[[31.067050772707812,29.718017578125],[31.405223877581317,30.3607177734375],[31.53640812943961,30.7562255859375],[31.508312698943445,31.3714599609375],[31.306715155075167,32.4700927734375],[30.713503990354965,32.32177734375],[30.41078179084589,32.0361328125],[30.164126343161097,31.640625],[30.031055426540206,31.025390625],[30.088107753367257,30.69580078125],[30.372875188118016,30.2783203125],[30.524413269923986,29.9542236328125],[30.680439786468128,29.7125244140625],[30.732392734006083,29.3115234375]]}</textarea>
+		<br>
+		<button onclick='transform("textarea_2", this)'>Transform To Map</button>
+		
+		<hr />
+		
+		<h3>Behind the scene example</h3>
+		<p>In this example, the textarea is shown so that you can see the changes as they occur, and you can change the textarea value by hand.</p>
+		<textarea id="textarea_3"></textarea>
+		<br>
+
+		<hr />
+		
+	</div>
+</body>
+</html>
