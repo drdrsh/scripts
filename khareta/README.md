@@ -3,69 +3,68 @@
 Features
 ---
 
-* Allows the user to draw point/polylines/polygons on the map
+* Allows the user to draw point/lines/polygons on the map
 * The component can "pop-out" to give the user more space to plot his points without disrupting the layout of your form.
-* Built around an input element so that any changes to the data in the textarea are reflected to the map and vice-versa. This feature can come in handy for forms that are submitted to the server. 
+* Built around an input element so that any changes to the data in the textarea are reflected to the map and vice-versa. This feature can come in handy for forms that are submitted to the server as these forms can be submitted out of the box without additional javascript code to serialize the map data.
 
 You can see [the plugin in action here](http://alfehrest.org/sub/khareta/index.html)
-
 
 
 Usage
 ---
 
 
-This plugin depends on Google Maps V3, It assumes that the necessary google maps dependencies are loaded so you will need to do that yourself like this
+This plugin depends on Google Maps V3, It assumes that the necessary google maps dependencies are loaded so you will need to load it yourself by doing something like this
 ```html
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=[YourAPIKey]"></script>	
 ```
 
 it also depends on jQuery so you'll need to load that as well
 
-Then include the Javascipt and CSS
+Then include the Javascipt and CSS of the plugin
 ```html
 	<script src="jquery.khareta.js"></script>
 	<link href="jquery.khareta.css" media="all" rel="stylesheet" type="text/css" />
 ```
 To attach the plugin to a textarea do this
-```json
+```javascript
 $('#textarea_1').khareta({/*options*/});
 ```
 
 # Plugin Options
 ---
 
-**strFullscreen** _(string)_ String for (Full Screen) __default__: "Full Screen"
+**strFullscreen** _(string)_ String for (Full Screen). __default__: "Full Screen"
 
-**strPoints** _(string)_  String for (Points) __default__: "Points"
+**strPoints** _(string)_  String for (Points). __default__: "Points"
 
-**strPolyline** _(string)_ String for (Polyline) __default__: "Polyline"
+**strPolyline** _(string)_ String for (Polyline). __default__: "Polyline"
 
-**strPolygon** _(string)_ String for (Polygon) __default__: "Polygon"
+**strPolygon** _(string)_ String for (Polygon). __default__: "Polygon"
 
-**mapTypeId** _(string)_ Google Maps [MapType](https://developers.google.com/maps/documentation/javascript/maptypes)  __default__: "google.maps.MapTypeId.TERRAIN"
+**mapTypeId** _(string)_ Google Maps [MapType](https://developers.google.com/maps/documentation/javascript/maptypes) . __default__: "google.maps.MapTypeId.TERRAIN"
 
-**strokeColor** _(string)_ Stroke Color value for lines/strokes __default__: #FF0000
+**strokeColor** _(string)_ Stroke Color value for lines/strokes. __default__: #FF0000
 
-**strokeOpacity** _(float)_ Stroke opacity (0.0 to 1.0) __default__: 1.0
+**strokeOpacity** _(float)_ Stroke opacity (0.0 to 1.0). __default__: 1.0
 
-**strokeWeight** _(float)_ stroke width __default__: 3
+**strokeWeight** _(integer)_ stroke width. __default__: 3
 
-**fillColor** _(string)_ Fill color for polygons __default__: #5555FF
+**fillColor** _(string)_ Fill color for polygons. __default__: #5555FF
 
-**fillOpacity** _(string)_ Fill opacity for polygons __default__: 1.0
+**fillOpacity** _(float)_ Fill opacity for polygons. __default__: 1.0
 
-**initialZoom** _(integer)_ initial zoom level for the map (see google.ma) __default__:
+**initialZoom** _(integer)_ initial zoom level for the map. __default__: 4
 
-**initialCenter** [_(LatLng)_](https://developers.google.com/maps/documentation/javascript/reference#LatLng) The center of the map __default__: new google.maps.LatLng(33.358062, 9.755859)
+**initialCenter** [_(LatLng)_](https://developers.google.com/maps/documentation/javascript/reference#LatLng) The center of the map. __default__: new google.maps.LatLng(33.358062, 9.755859)
 
-**initialMode** _(string)_ Startup plotting mode , 3 modes are supported which are ('point', 'polyline', 'polygon') __default__: polygon
+**initialMode** _(string)_ Startup plotting mode , 3 modes are supported which are ('point', 'polyline', 'polygon'). __default__: polygon
 
-**maxCount** _(integer)_ maximum number of points allowed, 0 for no limit,__default__: 0
+**maxCount** _(integer)_ maximum number of points allowed, 0 for no limit. __default__: 0
 
-**codec** _(string)_ The format in which the data are serialized and stored in the textarea , currently supported are
-* **json: **   json text
-* **base64: ** json text that is base64 encoded
+**codec** _(string)_ The format in which the data are serialized and stored in the textarea , currently supported are:
+* **json: **   json text.
+* **base64: ** json text that is base64 encoded.
 
 __default__: json
 
@@ -73,22 +72,22 @@ __default__: json
 ---
 
 ### toggleFullscreen(isEnabled)
-Enables/Disables fullscreen mode
+Enables/Disables fullscreen mode.
 	
 #### Example
-```json
+```javascript
 	$('#textarea_1').khareta('toggleFullscreen', false);
 ```
 
 ### setMode
-Sets the plotting mode for the map, supported modes are 'point', 'polyline', 'polygon'
+Sets the plotting mode for the map, supported modes are 'point', 'polyline', 'polygon'.
 #### Example
-```json
+```javascript
 	$('#textarea_1').khareta('setMode', 'polygon');
 ```
 
 ### getData
-Retrieves the internal data structure representing the current state of the map
+Retrieves the internal data structure representing the current state of the map.
 
 The data structures looks like this
 ```json
@@ -98,7 +97,7 @@ The data structures looks like this
 	}
 ```
 #### Example
-```json
+```javascript
 	var componentData = $('#textarea_1').khareta('getData');
 ```			
 
@@ -124,7 +123,7 @@ I believe I could use a hidden input element but for historical reasons I stuck 
 
 About
 ---
-This is a somewhat cleaned up version of the code that I built during my work on [Alfehrest.Org](alfehrest.org), It is an early attempt of mine on building jQuery plugins, Also I haven't throughly tested this plugin to work on all platforms so I'd appreciate any any comments/suggestion/corrections.
+This is a somewhat cleaned up version of the code that I built during my work on [Alfehrest.Org](alfehrest.org), It is an early attempt of mine on building jQuery plugins, Also I haven't thoroughly tested this plugin to work on all platforms so I'd appreciate any any comments/suggestion/corrections.
 
 
 Author
